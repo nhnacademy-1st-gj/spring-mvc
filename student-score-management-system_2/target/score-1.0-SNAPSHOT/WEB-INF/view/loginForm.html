@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{LogIn}"></title>
+    <h2 th:text="#{LogIn}"></h2>
+</head>
+<body>
+<form method="post" action="/user/login">
+    <span th:text="#{Email}"></span>
+    <input type="text" name="email" required>
+    <span th:text="#{Password}"></span>
+    <input type="password" name="password" required>
+    <input type="submit" value="login">
+</form>
+
+<a href="?locale=ko" th:utext="${#locale.toString() == 'ko' ? '<b>ko</b>' : 'ko'}">ko</a>
+<a href="?locale=en" th:utext="${#locale.toString() == 'en' ? '<b>en</b>' : 'en'}">en</a><br/>
+
+<a th:href="@{/user/signup}" th:text="#{SignUp}">SignUp</a>
+
+</body>
+</html>
