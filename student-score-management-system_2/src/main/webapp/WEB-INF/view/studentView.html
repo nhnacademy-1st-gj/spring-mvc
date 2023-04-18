@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="#{View}"></title>
+    <h2 th:text="#{View}"></h2>
+</head>
+<body>
+<span th:text="#{Id}"></span> : <span th:text="${student.id}"></span><br/>
+<span th:text="#{Name}"></span> : <span th:text="${student.name}"></span><br/>
+<span th:text="#{Email}"></span> : <span th:text="${student.email}"></span><br/>
+<span th:if="${hideScore == null}">
+    <span th:text="#{Score}"></span> : <span th:text="${student.score}"></span><br/>
+    <span th:text="#{Comment}"></span> : <span th:text="${student.comment}"></span><br/>
+</span>
+<br/>
+<a th:href="@{/student/{studentId}/modify(studentId=${student.id})}" th:text="#{Modify}"></a><br/>
+
+<a href="?hideScore=yes" th:text="#{HideScore}"></a>
+<br/>
+<br/>
+
+<a th:href="@{/user/logout}" th:text="#{Logout}">Logout</a>
+</body>
+</html>
