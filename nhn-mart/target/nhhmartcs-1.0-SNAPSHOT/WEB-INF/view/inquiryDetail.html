@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>문의 상세보기</title>
+</head>
+<body>
+<h2>문의 상세보기</h2>
+<table border="1">
+    <tr>
+        <td>제목</td>
+        <td><span th:text="${inquiry.title}"></span></td>
+    </tr>
+    <tr>
+        <td>분류</td>
+        <td><span th:text="${inquiry.category.getName()}"></span></td>
+    </tr>
+    <tr>
+        <td>내용</td>
+        <td><span th:text="${inquiry.comment}"></span></td>
+    </tr>
+    <tr>
+        <td>답변 여부</td>
+        <td><span th:text="${inquiry.isAnswered} ? '답변 완료' : '답변 대기 중' "></span></td>
+    </tr>
+    <tr>
+        <td>첨부파일</td>
+        <td><span th:text="${url}"></span></td>
+    </tr>
+    <tr th:each="file : ${files}">
+        <img th:src="@{/Users/jieunkim/Downloads/}+${file}">
+    </tr>
+
+</table>
+
+
+<img th:src="@{/Users/jieunkim/Downloads/51FnhMNlbBL.jpeg}">
+
+</body>
+</html>
