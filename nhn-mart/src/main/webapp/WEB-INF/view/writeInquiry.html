@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>문의 작성하기</title>
+</head>
+<body>
+<h2>문의 작성하기</h2>
+<form method="post" enctype="multipart/form-data" action="/cs/inquiry">
+    제목 : <input type="text" name="title"/><br/>
+    분류 :
+    <select name="category">
+        <option th:each="i : ${T(com.academy.nhnmartcs.domain.InquiryCategory).values()}"
+                th:value="${i}" th:text="${i.getName()}"></option>
+    </select>
+    <br/>
+    내용 : <br/><textarea name="comment" rows="10" cols="40"></textarea><br/>
+    첨부파일: <input multiple="multiple" type="file" name="file"/><br/>
+
+    <input type="submit" value="저장"/>
+</form>
+<button th:onclick="|location.href='@{/cs}'|">취소</button>
+
+</body>
+</html>
